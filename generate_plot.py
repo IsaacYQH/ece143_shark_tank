@@ -136,6 +136,86 @@ def plot_sankey_deal_flow(df, sharks=None, industries=None, title=None):
     fig.update_layout(title_text=title, font_size=10)
     return fig
 
+# Plot 10: Scatter plot of vierwership vs deal success rate for industries
+def plot_scatter_views_deal_success(df):
+    """
+    A Scatter plot of vierwership vs deal success rate for industries.
+    """
+
+    #Calculate vierwership & deal success rate for each industry
+    result_sum = df.groupby('Industry')[['Got Deal', 'US Viewership']].sum().reset_index()
+    industry_count = df['Industry'].value_counts().reset_index()
+    industry_count.columns = ['Industry', 'Count']
+    final_result = pd.merge(result_sum, industry_count, on='Industry', how='outer')
+    final_result['success rate'] = final_result['Got Deal'] / final_result['Count'] * 100
+    final_result = final_result[final_result['Industry'] != 'Uncertain/Other']
+
+    #Generate scatter plot
+    fig = px.scatter(
+        final_result,
+        x='US Viewership',
+        y='success rate',
+        hover_name='Industry',
+        text='Industry',
+        title='US Viewership vs Success Rate by Industry',
+        labels={'US Viewership': 'US Viewership (in million)', 'success rate': 'Success Rate (%)'},
+        color_discrete_sequence=['blue']
+    )
+
+    fig.update_traces(
+        textposition='top center',
+        textfont=dict(size=20),
+        marker=dict(opacity=0.7)
+    )
+
+    fig.update_layout(
+        width=1800,
+        height=1200,
+        xaxis=dict(
+            title_font=dict(size=20), 
+            tickfont=dict(size=12),
+            dtick=400,
+            range=[0, max(final_result['US Viewership']) + 100]
+        ),
+        yaxis=dict(title_font=dict(size=20), tickfont=dict(size=12)),
+        title=dict(font=dict(size=20)),
+        hovermode='closest',
+        margin=dict(l=20, r=20, t=50, b=20)
+    )
+
+    return fig
+
+# Plot 11: Pie chart gender of all pithchers and successful pitchers
+def plot_pie_gender(df):
+    """
+    A Pie chart gender of all pithchers and successful pitchers
+    """
+    #Successful pitchers
+    deals_made = df[df['Got Deal'] == 1]
+    gender_percentages = deals_made['Pitchers Gender'].value_counts(normalize=True) * 100
+    fig_successful = px.pie(
+        names=gender_percentages.index,
+        values=gender_percentages.values,
+        title='Gender Distribution of Successful Pitchers',
+        labels={'label': 'Gender', 'value': 'Percentage'}
+    )
+    fig_successful.update_traces(textinfo='percent+label', textfont_size=20)
+    fig_successful.update_layout(title_font_size=20)
+    
+    #Overall pitchers
+    gender_counts = df['Pitchers Gender'].value_counts()
+    fig_overall = px.pie(
+        names=gender_counts.index,
+        values=gender_counts.values,
+        title='Gender Distribution of Pitchers',
+        labels={'label': 'Gender', 'value': 'Count'}
+    )
+    fig_overall.update_traces(textinfo='percent+label', textfont_size=20)
+    fig_overall.update_layout(title_font_size=20)
+    
+    return fig_successful, fig_overall
+
+
 
 # Example usage
 if __name__ == "__main__":
@@ -154,7 +234,9 @@ if __name__ == "__main__":
     fig9 = plot_sankey_deal_flow(df)
     fig10 = plot_sankey_deal_flow(df,sharks=['Mark Cuban'],title='Mark Cuban Deal Flow to Industries')
     fig11 = plot_sankey_deal_flow(df,industries=['Media/Entertainment','Pet Products'],title='Deal Flow from Fashion/Beauty to Sharks')
-    
+    fig12 = plot_scatter_views_deal_success(df)
+    fig13, fig14  = plot_pie_gender(df)
+
     # Show example plot
     # fig1.show()
     # fig2.show()
@@ -167,3 +249,6 @@ if __name__ == "__main__":
     # fig9.show()
     # fig10.show()
     # fig11.show()
+    # fig12.show()
+    # fig13.show()
+    # fig14.show()
