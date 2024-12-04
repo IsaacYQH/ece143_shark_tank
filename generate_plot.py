@@ -215,6 +215,61 @@ def plot_pie_gender(df):
     
     return fig_successful, fig_overall
 
+# Plot 12: Stacked bar chart to show the gender diversity of pitchers across seasons
+def plot_stackedbar_gender(df):
+    """
+    A Stacked bar chart to show the gender percentage of pitchers across seasons
+    """
+
+    # Calculate gender diversity percentages by season
+    data = df.loc[df['Season Number'] != 16]
+    gender_data = data[['Season Number', 'Pitchers Gender']]
+    gender_counts = gender_data.groupby(['Season Number', 'Pitchers Gender']).size().unstack(fill_value=0)
+    gender_percentage = gender_counts.div(gender_counts.sum(axis=1), axis=0) * 100
+
+    custom_colors = {
+        'Male': '#1f77b4',    
+        'Female': '#ff7f0e',  
+        'Mixed Team': '#2ca02c'    
+    }
+
+    # Create the stacked bar graph
+    fig = go.Figure()
+
+    for gender in gender_percentage.columns:
+        fig.add_trace(go.Bar(
+            x=gender_percentage.index,
+            y=gender_percentage[gender],
+            name=gender,
+            text=gender_percentage[gender].round(1),
+            textposition='inside',
+            marker=dict(color=custom_colors.get(gender, '#d3d3d3'))  # Use custom colors
+        ))
+
+    fig.update_layout(
+        title={
+            'text': 'Gender Diversity in Shark Tank Pitches by Season',
+            'font': {'size': 24}
+        },
+        xaxis={
+            'title': {'text': 'Season Number', 'font': {'size': 18}},
+            'tickfont': {'size': 14}
+        },
+        yaxis={
+            'title': {'text': 'Percentage', 'font': {'size': 18}},
+            'tickfont': {'size': 14}
+        },
+        legend={
+            'title': {'text': 'Pitchers Gender', 'font': {'size': 16}},
+            'font': {'size': 14}
+        },
+        barmode='stack',
+        template='plotly',
+        margin=dict(t=50, b=50, l=50, r=50)
+    )
+
+    return fig
+
 
 
 # Example usage
@@ -236,6 +291,7 @@ if __name__ == "__main__":
     fig11 = plot_sankey_deal_flow(df,industries=['Media/Entertainment','Pet Products'],title='Deal Flow from Fashion/Beauty to Sharks')
     fig12 = plot_scatter_views_deal_success(df)
     fig13, fig14  = plot_pie_gender(df)
+    fig15 = plot_stackedbar_gender(df)
 
     # Show example plot
     # fig1.show()
@@ -252,3 +308,4 @@ if __name__ == "__main__":
     # fig12.show()
     # fig13.show()
     # fig14.show()
+    # fig15.show()
