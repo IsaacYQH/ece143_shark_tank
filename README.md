@@ -40,4 +40,4 @@ This project investigates startup companies in the US through the lens of the po
 ## **Final Presentation**
 Our project findings and insights are compiled in a presentation available here:
 
-[ECE143_Group_13_Final_Presentation.pdf]([https://docs.google.com/presentation/d/1qYn_WN-LpJIszPvLomJdqw3qk8KqCV9Ftj36vBX77S0/edit#slide=id.g31bf258b86b_1_41](https://docs.google.com/presentation/d/1PQDi8DjCNR1NgA-RA1-hRaGnez7DkwL1d8c7X96bzJg/edit?usp=sharing))
+[ECE143_Group_13_Final_Presentation.pdf](https://docs.google.com/presentation/d/1PQDi8DjCNR1NgA-RA1-hRaGnez7DkwL1d8c7X96bzJg/edit?usp=sharing)
