@@ -4,8 +4,8 @@
 - Ajj Patel
 - Gokul G
 - Nathaniel Greenberg
-- Zih-Huan Kuang
 - Qihui Yang
+- Zih-Huan Kuang
 
 ---
 
