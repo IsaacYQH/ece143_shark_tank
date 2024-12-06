@@ -37,7 +37,5 @@ This project investigates startup companies in the US through the lens of the po
    python Model/model.py
    ```
 ---
-## **Final Presentation**
-Our project findings and insights are compiled in a presentation available here:
-
+## **Presentation Slides**
 [ECE143_Group_13_Final_Presentation.pdf](https://docs.google.com/presentation/d/1PQDi8DjCNR1NgA-RA1-hRaGnez7DkwL1d8c7X96bzJg/edit?usp=sharing)
