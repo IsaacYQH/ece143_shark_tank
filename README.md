@@ -22,6 +22,10 @@ This project investigates startup companies in the US through the lens of the po
    - Develops logistic regression to locate important features of a successful startup company.
 ---
 
+## **Third-Party Modules Used**
+1. Pandas
+2. Plotly
+---
 ## **Results Replication**
 1. **Clone the Repository**:
    ```bash
