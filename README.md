@@ -2,7 +2,7 @@
 ## **Group 13**
 ### **Authors**
 - Ajj Patel
-- Gokul G
+- Gokul Gandhikumar
 - Nathaniel Greenberg
 - Qihui Yang
 - Zih-Huan Kuang
