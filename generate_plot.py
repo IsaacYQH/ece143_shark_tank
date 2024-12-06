@@ -148,17 +148,18 @@ def plot_scatter_views_deal_success(df):
     industry_count.columns = ['Industry', 'Count']
     final_result = pd.merge(result_sum, industry_count, on='Industry', how='outer')
     final_result['success rate'] = final_result['Got Deal'] / final_result['Count'] * 100
+    final_result['avg views'] = final_result['US Viewership'] / final_result['Count']
     final_result = final_result[final_result['Industry'] != 'Uncertain/Other']
 
     #Generate scatter plot
     fig = px.scatter(
         final_result,
-        x='US Viewership',
+        x='avg views',
         y='success rate',
         hover_name='Industry',
         text='Industry',
         title='US Viewership vs Success Rate by Industry',
-        labels={'US Viewership': 'US Viewership (in million)', 'success rate': 'Success Rate (%)'},
+        labels={'avg views': 'Average US Viewership (in million)', 'success rate': 'Success Rate (%)'},
         color_discrete_sequence=['blue']
     )
 
@@ -175,7 +176,7 @@ def plot_scatter_views_deal_success(df):
             title_font=dict(size=20), 
             tickfont=dict(size=12),
             dtick=400,
-            range=[0, max(final_result['US Viewership']) + 100]
+            range=[4, max(final_result['avg views']) + 0.1]
         ),
         yaxis=dict(title_font=dict(size=20), tickfont=dict(size=12)),
         title=dict(font=dict(size=20)),
