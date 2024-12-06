@@ -30,8 +30,9 @@ This project investigates startup companies in the US through the lens of the po
    ```
 2. **Visualization**:
    ```bash
-
+   python generate_plot.py
    ```
+   or run the jupyter notebook ``
 3. **Logistic Model**
    ```bash
    python Model/model.py
