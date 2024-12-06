@@ -32,7 +32,7 @@ This project investigates startup companies in the US through the lens of the po
    ```bash
    python generate_plot.py
    ```
-   or run the jupyter notebook ``
+   or run the jupyter notebook `Plots.ipynb`
 3. **Logistic Model**
    ```bash
    python Model/model.py
