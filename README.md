@@ -25,15 +25,19 @@ This project investigates startup companies in the US through the lens of the po
 ## **Results Replication**
 1. **Clone the Repository**:
    ```bash
-   git clone 
+   git clone https://github.com/IsaacYQH/ece143_shark_tank.git
    cd ece143_shark_tank
    ```
 2. **Visualization**:
    ```bash
-   python3 main.py
+
    ```
 3. **Logistic Model**
    ```bash
-   python3 main.py
+   python Model/model.py
    ```
 ---
+## **Final Presentation**
+Our project findings and insights are compiled in a presentation available here:
+
+[ECE143_Group_13_Final_Presentation.pdf]([https://docs.google.com/presentation/d/1qYn_WN-LpJIszPvLomJdqw3qk8KqCV9Ftj36vBX77S0/edit#slide=id.g31bf258b86b_1_41](https://docs.google.com/presentation/d/1PQDi8DjCNR1NgA-RA1-hRaGnez7DkwL1d8c7X96bzJg/edit?usp=sharing))
