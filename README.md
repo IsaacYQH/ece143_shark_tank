@@ -15,16 +15,14 @@ This project investigates startup companies in the US through the lens of the po
 ---
 
 ## **Code Overview**
-### What the Code Does
 1. **Data Analysis and Visualization**:
    - Analyzes pitchers profiles by location, gender, industries etc.
    - Creates pies charts, flow charts bar charts and heat map for investment analysis.
 2. **Modeling**:
    - Develops logistic regression to locate important features of a successful startup company.
-
 ---
 
-## **How to Run the Code**
+## **Results Replication**
 1. **Clone the Repository**:
    ```bash
    git clone 
