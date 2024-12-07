@@ -25,6 +25,8 @@ This project investigates startup companies in the US through the lens of the po
 ## **Third-Party Modules Used**
 1. Pandas
 2. Plotly
+3. Sklearn
+4. Numpy
 ---
 ## **Results Replication**
 1. **Clone the Repository**:
