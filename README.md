@@ -32,12 +32,16 @@ This project investigates startup companies in the US through the lens of the po
    git clone https://github.com/IsaacYQH/ece143_shark_tank.git
    cd ece143_shark_tank
    ```
-2. **Visualization**:
+2. **Environment Setup**:
+   ```bash
+   pip install pandas poltly 
+   ```
+3. **Visualization**:
    ```bash
    python generate_plot.py
    ```
    or run the jupyter notebook `Plots.ipynb`, interactive plots will be generated.
-3. **Logistic Model**
+4. **Logistic Model**
    ```bash
    python Model/model.py
    ```
