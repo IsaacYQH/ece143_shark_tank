@@ -36,7 +36,7 @@ This project investigates startup companies in the US through the lens of the po
    ```
 2. **Environment Setup**:
    ```bash
-   pip install pandas poltly 
+   pip install pandas poltly scikit-learn numpy
    ```
 3. **Visualization**:
    ```bash
